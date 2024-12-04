@@ -1,4 +1,4 @@
-function CartWindget() {
+function CartWidget() {
   return (
   <div>
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2 ms-2" viewBox="0 0 16 16">
@@ -8,4 +8,4 @@ function CartWindget() {
   )
 }
 
-export default CartWindget;
+export default CartWidget;

@@ -1,7 +1,9 @@
-import { useParams, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getProducts, getProductsByCategory } from '../../asyncMock.js';
-import './ItemListContainer.css';
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { db } from "../../service/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import "./ItemListContainer.css";
+import ItemList from "../ItemList/ItemList";
 
 function ItemListContainer() {
   const { categoryId } = useParams();
@@ -9,43 +11,38 @@ function ItemListContainer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
+    const collectionRef = categoryId
+      ? query(collection(db, "products"), where("categoria", "==", categoryId))
+      : collection(db, "products");
 
-    // Llama a la función según si hay categoría o no
-    const fetchData = categoryId ? getProductsByCategory(categoryId) : getProducts();
-
-    fetchData
-      .then((products) => {
-        setItems(products);
+    getDocs(collectionRef)
+      .then((querySnapshot) => {
+        const productos = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setItems(productos);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       })
       .finally(() => {
-        setLoading(false); // Finaliza la carga
+        setLoading(false);
       });
-  }, [categoryId]); // Ejecuta el useEffect al cambiar la categoría
+  }, [categoryId]);
 
   if (loading) return <div>Cargando productos...</div>;
 
   return (
-    <div className="item-list-container">
+    <div>
       <h2>{categoryId ? `Categoría: ${categoryId}` : "Productos"}</h2>
-      <div className="products-grid">
-        {items.map((item) => (
-          <div key={item.id} className="product-card">
-            <img src={item.img} alt={item.nombre} className="product-image" />
-            <h3>{item.nombre}</h3>
-            <p>{item.descripcion}</p>
-            <p>Precio: U$S {item.precio}</p>
-            <Link to={`/item/${item.id}`} className="view-more-button">
-              Ver más
-            </Link>
-          </div>
-        ))}
-      </div>
+      
+      <ItemList items={items} />
     </div>
   );
 }
+
+
+
 
 export default ItemListContainer;

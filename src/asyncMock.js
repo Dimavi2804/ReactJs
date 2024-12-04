@@ -6,6 +6,7 @@ const products = [
       precio: 212,
       categoria: "PROCESADOR",
       img: "/img/i3-14100.jpg",
+      stock: 7,
     },
     {
       id: 2,
@@ -14,6 +15,7 @@ const products = [
       precio: 344,
       categoria: "PROCESADOR",
       img: "/img/I5-14400.jpg",
+      stock: 17,
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ const products = [
       precio: 178,
       categoria: "PROCESADOR",
       img: "/img/RYZEN5-5600.jpg",
+      stock: 10,
     },
     {
       id: 4,
@@ -30,6 +33,7 @@ const products = [
       precio: 212,
       categoria: "PROCESADOR",
       img: "/img/RYZEN7-5700G.jpg",
+      stock: 9,
     },
     {
       id: 5,
@@ -38,6 +42,7 @@ const products = [
       precio: 367,
       categoria: "MOTHERBOARD",
       img: "/img/ASUS-H670-PRO-WIFI-D4.jpg",
+      stock: 66,
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ const products = [
       precio: 293,
       categoria: "MOTHERBOARD",
       img: "/img/ASUS-PRIME-Z790M-PLUS.jpg",
+      stock: 3,
     },
     {
       id: 7,
@@ -54,6 +60,7 @@ const products = [
       precio: 165,
       categoria: "MOTHERBOARD",
       img: "/img/ASUS-TUF-GAMING-B450M-PLUS-II.jpg",
+      stock: 6,
     },
     {
       id: 8,
@@ -62,6 +69,7 @@ const products = [
       precio: 150,
       categoria: "MOTHERBOARD",
       img: "/img/GIGABYTE-A520I-AC-MINI-ITX.jpg",
+      stock: 2,
     },
     {
       id: 9,
@@ -70,6 +78,7 @@ const products = [
       precio: 25,
       categoria: "MEMORIA RAM",
       img: "/img/CORSAIR-8GB-DDR4-PC2666.jpg",
+      stock: 30,
     },
     {
       id: 10,
@@ -78,6 +87,7 @@ const products = [
       precio: 34,
       categoria: "MEMORIA RAM",
       img: "/img/NETAC-SHADOW-DDR4-16GB-2666-NTSDD4P26SP-16R.jpg",
+      stock: 16,
     }
   ];
   

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CartWidget from "../CartWidget/CartWindget";
+import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
   return (
@@ -23,11 +23,11 @@ function NavBar() {
             <li className="nav-item">
               <Link className="nav-link" to="/category/MEMORIA RAM">Memorias RAM</Link>
             </li>
-
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
+            <Link to="/checkout" className="btn btn-primary ms-2 text-nowrap fs-6">Ir al carrito</Link>
             <CartWidget />
           </form>
         </div>
@@ -37,3 +37,4 @@ function NavBar() {
 }
 
 export default NavBar;
+
